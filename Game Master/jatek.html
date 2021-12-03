@@ -5,26 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
+    <script src="js/jatek.js"></script>
+    <script src="js/iframe-handler.js"></script>
     <title>[Alpha] Project UNO</title>
   </head>
   <body>
     <div class="container">
         <h1>Project UNO</h1>
     </div>
-    <div class="container">
-            <div class="row">
-                <div class="col">
-                    <p class="lead">Jelenlegi kártya</p>
-                    <img class="keret" id="lap" src="/kartyak/Blue_0.png">      
-                </div>
-                <div class="col">
-                    <p class="lead">Pakli (Még ennyi kártya van benne: <span id="mennyivan">X</span>)</p>
-                    
-                    <img class="keret" id="pakli" src="/kartyak/Deck.png">
-                </div>
-            </div>
-
-    </div>
+        <p class="lead">Jelenlegi kártya</p>
+        <div class="myFrame">
+          <iframe id="iframe" src="kartya.php" height="100%" width="100%" scrolling="no" frameborder="0"></iframe> <!--frameborder='0' height='465px' width='470px' scrolling='no' src='http://currentlyobsessed.me/api/v1/get_widget?wid=30&blog=Brighton+The+Day&widgetid=38585'-->
+        </div>
     
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
