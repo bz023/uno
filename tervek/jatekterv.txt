@@ -1,0 +1,73 @@
+KÁRTYA ÁLLAPOTOK:
+pakli : épp a pakliban van és felhúzható lap
+aktív : a jelenlegi kártya, ami felül van és erre kell rakni
+passzív : már elhasznált kártya
+kézben: valamelyik játékos kezében van épp
+
+JÁTÉKOS ÁLLAPOT:
+kiesett: bool
+kitiltott: bool
+pluszlap: integer
+
+
+JÁTÉK ÁLLAPOT:
+fordított : bool
+    - ha nem fordított, akkor [1,2,3,4]
+    - ha fordított akkor [4,3,2,1]
+
+
+1.) Kártyák sorrendjének randomizálása (1-54)
+2.) Játékosoknak kiosztani a kártyát (4x7 lap)
+3.) GameMaster kiveszi a kártyát és leteszi
+    - GameMaster id = 1
+
+    2 tömb:
+    Előre: [1,2,3,4] és
+    Vissza: [4,3,2,1]
+    // ha megfordítják a kört, akkor a vissza
+    pluszos lapok száma változó, amiben számoljuk a stackelődött +4-eket és +2-ket
+    szín változó
+    tiltott változó, ami aktiválódik (true) hogyha az adott játékos letett egy tiltót, és a kitiltott köre végén deaktiválódik (false)
+
+4.) Játékosok menete:
+
+    - Van-e kártyája, és még nem-e ment körbe a kör?
+    - Nincs-e kitiltva?
+    - Nem kell-e húznia plusz kártyákat? +2 +4
+    - Ha egy kártyája van, és nem bökött rá az UNO! gombra, akkor gatya és húz két lapot
+    - Tiltónál passz gomb! (5.)
+    - laphúzás gomb
+    - ha rábök egy lapra, és nem rakható le, akkor hibaüzenet
+    - ha rábök és jó, akkor leteszi, és következő kör
+    - Következő nber
+
+5.) Vizsgálat menete:
+
+    - jatek táblából megnézi, hogy a játékosnál hány kártya van:
+        - ha egy, akkor uno gomb
+        - ha nulla, akkor kiesett=true
+        - ha nulla és kiesett=true, akkor kivesszük a játékosok listájából
+    - Nincs-e kitiltva?
+        - Tud-e rakni tiltót?
+            - Ha igen, lerakhatja, vagy választ, hogy kimarad : passz gomb!
+            - Ha nem, akkor kimarad
+    - Nem-e kell húznia?
+        - Tud-e rakni +2 vagy +4 lapot? 
+            - Ha igen, akkor lerakhatja, vagy választ, hogy kimarad: akkor húz
+            - Ha nem, akkor felhúzza a lapokat
+    - Lerakás:
+        - Éppen aktív kártyával ha megegyező a színe, vagy a száma, akkor lerakható
+        - Ha fekete, akkor lerakható
+        - Ha színválasztó, akkor kell 4 lehetőség, hogy miből választhat
+        - Ha leraktad, akkor az a kártya lesz az aktív, az előző átmegy passzív állapotba
+    
+    - Ha elfogynak a kártyák a pakliból (mind kézben vagy passzív):
+        - Passzív => pakli
+        - pakli újrakever
+
+        
+    
+        
+    
+    
+    
